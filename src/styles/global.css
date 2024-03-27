@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply font-[monospace] min-h-svh text-[12px] max-w-xl mx-auto py-2 flex flex-col;
+  @apply font-[monospace] min-h-svh text-[12px] max-w-xl mx-auto p-2 flex flex-col;
 }
 
 header {
@@ -29,11 +29,11 @@ footer {
 }
 
 h1 {
-  @apply text-2xl;
+  @apply text-2xl font-bold;
 }
 
 h2 {
-  @apply text-xl;
+  @apply text-xl font-bold pb-1;
 }
 
 h3 {
@@ -41,5 +41,9 @@ h3 {
 }
 
 a {
-  @apply hover:bg-accent hover:text-fill before:content-["["] after:content-["]"];
+  @apply hover:bg-accent hover:text-fill;
+}
+
+pre {
+  @apply bg-black;
 }
