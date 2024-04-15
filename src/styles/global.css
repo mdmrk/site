@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply font-[monospace] min-h-svh text-[12px] max-w-xl mx-auto p-2 flex flex-col;
+  @apply font-[monospace] min-h-svh text-[12px] max-w-2xl mx-auto p-2 flex flex-col;
 }
 
 header {
@@ -29,15 +29,15 @@ footer {
 }
 
 h1 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold mt-4 mb-2;
 }
 
 h2 {
-  @apply text-xl font-bold pb-1;
+  @apply text-xl font-bold mt-4 mb-2;
 }
 
 h3 {
-  @apply text-lg;
+  @apply text-lg mt-2;
 }
 
 a {
@@ -45,5 +45,9 @@ a {
 }
 
 pre {
-  @apply bg-black;
+  @apply my-4;
+}
+
+:not(pre) > code {
+  @apply underline decoration-dotted;
 }
