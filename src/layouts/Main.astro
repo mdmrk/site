@@ -4,15 +4,14 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FormattedDate from '../components/FormattedDate.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 
-type Props = CollectionEntry<'blog'>['data']
-
-const { title, description, pubDate, updatedDate } = Astro.props
+const { title } = Astro.props
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
   <body>
@@ -21,18 +20,8 @@ const { title, description, pubDate, updatedDate } = Astro.props
       <article>
         <div class="prose">
           <div class="title">
-            <div class="date">
-              {pubDate && <FormattedDate date={pubDate} />}
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-            <h2>{title}</h2>
-            <hr />
+            {title && (<h2>{title}</h2>
+            <hr />)}
             <br />
           </div>
           <slot />
