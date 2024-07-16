@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
-    (await import('astro-compress')).default(),
+    (await import('@playform/compress')).default(),
     tailwind(),
   ],
 })
