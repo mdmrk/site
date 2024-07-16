@@ -12,20 +12,17 @@
     "lint": "bunx @biomejs/biome lint ."
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/check": "^0.8.1",
+    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.6.4",
-    "astro-compress": "^2.2.21",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
-  },
-  "overrides": {
-    "sharp": "0.33.3"
+    "astro": "^4.11.5",
+    "astro-compress": "^2.2.28",
+    "tailwindcss": "^3.4.5",
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.1"
+    "@biomejs/biome": "1.8.3"
   }
 }
