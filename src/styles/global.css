@@ -49,5 +49,5 @@ pre {
 }
 
 :not(pre) > code {
-  @apply underline decoration-dotted;
+  @apply bg-[#24292e];
 }
