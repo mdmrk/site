@@ -41,13 +41,21 @@ h3 {
 }
 
 a {
-  @apply hover:bg-accent hover:text-fill;
+  @apply hover:bg-accent hover:text-fill underline underline-offset-2;
 }
 
 pre {
-  @apply my-4;
+  @apply mt-2 mb-8;
+}
+
+table {
+  @apply my-8;
+}
+
+th, td{
+  @apply border border-accent;
 }
 
 :not(pre) > code {
-  @apply bg-[#24292e];
+  @apply bg-[#24292e] italic;
 }
