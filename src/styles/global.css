@@ -53,7 +53,7 @@ table {
 }
 
 th, td{
-  @apply border border-accent;
+  @apply border border-accent px-0.5;
 }
 
 :not(pre) > code {

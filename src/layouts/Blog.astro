@@ -5,16 +5,17 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<'blog'>['data'] & {
+  modDate?: Date
+}
 
-const { title, description, pubDate, updatedDate } = Astro.props
+const { title, description, pubDate, modDate } = Astro.props
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
   </head>
-
   <body>
     <Header />
     <main>
@@ -26,9 +27,9 @@ const { title, description, pubDate, updatedDate } = Astro.props
             <div class="mt-2">
               {pubDate && <FormattedDate date={pubDate} />}
               {
-                updatedDate && (
+                modDate && modDate > pubDate && (
                   <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
+                    Last modified on <FormattedDate date={modDate} />
                   </div>
                 )
               }
