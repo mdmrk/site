@@ -2,6 +2,7 @@
 title: "wrapping SDL3 for Zig"
 description: "breifly explaining the process to wrap a C lib to Zig"
 pubDate: "02/14/2025"
+updatedDate: "02/15/2025"
 ---
 
 SDL3 just got released not so long ago, and while it is an amazing library providing many functionalities across multiple platforms, there is something that bothers me a little bit.
@@ -32,10 +33,8 @@ pub fn main() !void {
     main_loop: while (true) {
         var event: c.SDL_Event = undefined;
 
-        while (true) {
-            while (c.SDL_PollEvent(&event)) {
-                if (event.type == c.SDL_EVENT_QUIT) break :main_loop;
-            }
+        while (c.SDL_PollEvent(&event)) {
+            if (event.type == c.SDL_EVENT_QUIT) break :main_loop;
         }
     }
 }
