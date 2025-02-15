@@ -1,10 +1,9 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import Main from '../layouts/Main.astro'
+import Layout from "../layouts/BlogPost.astro";
 ---
 
-<Main title="about me">
-
-</Main>
+<Layout
+  title="about me"
+  description="about me"
+  pubDate={new Date("01/01/2025")}
+/>

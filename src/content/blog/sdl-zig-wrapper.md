@@ -2,16 +2,11 @@
 title: "wrapping SDL3 for Zig"
 description: "breifly explaining the process to wrap a C lib to Zig"
 pubDate: "02/14/2025"
-slug: "sdl-zig"
 ---
 
 SDL3 just got released not so long ago, and while it is an amazing library providing many functionalities across multiple platforms, there is something that bothers me a little bit.
-<br />
-<br />
 
 Lately I switched to Zig for most of my development time as I enjoyed many of the features it brings to the table, one being the great C interoperability. However, C library APIs can be a little shocking to work with for me and SDL is an example of that.
-<br />
-<br />
 
 Using straight up C, writting a simple event loop would result in something like:
 
@@ -47,8 +42,9 @@ pub fn main() !void {
 ```
 
 It is ok for me, but I want better. So I wrote a partial wrapper to take advantage of Zig's coding patterns and called it [zsdl](https://github.com/mdmrk/zsdl).
-<br/><br/>
+
 I decided to respect the namespaces and group objects and functions in separate files. This is a glimpse of my approach, a code snippet from `video.zig` which contains definitions for `Display` and `Window` among a few more.
+
 ```zig
 pub const Window = struct {
     ptr: *c.SDL_Window,
@@ -90,8 +86,7 @@ pub inline fn errify(value: anytype) error{SdlError}!switch (@typeInfo(@TypeOf(v
 }
 ```
 
-The final look of the first example would look like this:
-
+The final look of the first example would end up like this:
 
 ```zig
 const zsdl = @import("zsdl");
@@ -109,10 +104,8 @@ pub fn main() !void {
     defer window.destroy();
 
     main_loop: while (true) {
-        while (true) {
-            while (zsdl.events.pollEvent()) |event| {
-                if (event == .quit) break :main_loop;
-            }
+        while (zsdl.events.pollEvent()) |event| {
+            if (event == .quit) break :main_loop;
         }
     }
 }

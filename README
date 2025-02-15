@@ -1,7 +1,2 @@
-website link - www.mdmrk.dev
-
-technologies:
-astro - html
-tailwindcss - css
-biomejs - linting, formatting
-bun - js runtime
+site link - www.mdmrk.dev
+made with Astro

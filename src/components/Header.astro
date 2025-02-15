@@ -1,13 +1,31 @@
 ---
-import { SITE_TITLE } from '../consts'
+import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-  <nav class="flex flex-col gap-1.5">
-    <a class="w-min" href="/">{SITE_TITLE}</a>
-    <div class="w-full h-min bg-accent min-h-5 text-fill">{}</div>
-    <div class="flex flex-row gap-2">
-      <a href="/blog">/blog</a><a href="/about">/about</a>
+  <nav>
+    <a href="/">{SITE_TITLE}</a>
+    <div class="separator">{}</div>
+    <div class="internal-links">
+      <a href="/blog">/blog</a>
+      <a href="/about">/about</a>
     </div>
   </nav>
 </header>
+<style>
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: left;
+    justify-content: space-between;
+  }
+  .separator {
+    background: white;
+    height: 1.75em;
+  }
+  .internal-links {
+    display: flex;
+    gap: 0.3em;
+  }
+</style>

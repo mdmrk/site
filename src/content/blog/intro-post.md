@@ -1,8 +1,7 @@
 ---
 title: "intro post"
 description: "playing around"
-pubDate: "Mar 26 2024"
-slug: "intro"
+pubDate: "03/26/2024"
 ---
 
 ```zig

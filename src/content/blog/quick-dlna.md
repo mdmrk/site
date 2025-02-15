@@ -2,22 +2,19 @@
 title: "quick dlna server"
 description: "quick dlna server setup on linux to stream your media over the local network"
 pubDate: "08/06/2024"
-slug: "quick-dlna"
 ---
-import { Picture } from "astro:assets";
-import dlna01 from "@/assets/dlna01.png";
-import dlna02 from "@/assets/dlna02.png";
 
 I'll be setting up a DLNA server on my Arch Linux machine to stream movies to my smart tv over my home network.
 
-
 ### What is this?
+
 If you don't know what DLNA is, I'll explain briefly. It was introduced in 2004 (20 years ago :O) and its purpose is to stream media files to other devices in the same network. It uses UPnP for media and device discovery.
 
 ### Tutorial
 
 I'll be using the tool [minidlna](https://sourceforge.net/projects/minidlna/) for its simplicity and following the [guide](https://wiki.archlinux.org/title/ReadyMedia) in Arch Linux forums. So I will be using my own user and OpenRC, taking that into consideration. For that, create the config file in `.config` directory
 .
+
 ```sh
 install -Dm644 /etc/minidlna.conf ~/.config/minidlna/minidlna.conf
 ```
@@ -48,17 +45,18 @@ Finally, run it:
 ```sh
 minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid -d
 ```
-I append the `-d` flag so it doesn't daemonize, but that's just my preference of course.
 
-<br />
+I append the `-d` flag so it doesn't daemonize, but that's just my preference of course.
 
 You can visit `http://192.168.100.10:8200/` (change it to your local IP) for a quick look at the discovered files and hosts.
 
-<Picture class="mx-auto my-4" src={dlna01} alt="DLNA web view" width="350" />
+![DLNA web view](../../assets/dlna01.png)
+
 My Smart TV talks to the server automatically.
 
 I can check the files are found from the UPnP section in VLC.
-<Picture class="mx-auto my-4" src={dlna02} alt="vlc" width="450" />
+
+![VLC](../../assets/dlna02.png)
 
 ### Subtitles
 

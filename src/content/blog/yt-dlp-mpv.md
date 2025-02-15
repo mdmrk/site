@@ -2,7 +2,6 @@
 title: "yt-dlp + mpv - fast and lean video player"
 description: "watching videos and other media through yt-dlp and mpv"
 pubDate: "04/17/2024"
-slug: "yt-dlp-mpv"
 ---
 
 With Youtube making everything possible to block third-party clients and adblockers to keep you at their bloated site, there are alternatives still available. At the time of writing this, you can browse [Indivious](https://yewtu.be/) or [Piped](piped.yt) and they're good alternatives.

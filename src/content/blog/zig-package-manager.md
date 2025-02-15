@@ -2,7 +2,6 @@
 title: "Zig package manager, easy guide"
 description: "zig package manager"
 pubDate: "04/15/2024"
-slug: "zig-package-manager"
 ---
 
 In this blog post I will sum up Zig's package manager on version `0.12.0-dev.3653+e45bdc6bd` of the language.
