@@ -61,10 +61,10 @@ a {
   text-decoration-line: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
+  text-decoration-color: white;
   color: white;
 }
 a:hover {
-  text-decoration-line: none;
   color: black;
   background: white;
 }
