@@ -1,7 +1,7 @@
 ---
 title: "no auth like button"
 description: "implementing a like button that does not need authentication in Astro and Supabase"
-pubDate: "03/25/2025"
+pubDate: "03/24/2025"
 ---
 
 After creating a simple static blog in Astro I thought about implement a like button for my blog posts.
