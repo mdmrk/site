@@ -101,6 +101,7 @@ button {
   all: unset;
   cursor: pointer;
   border: 1px solid;
+  border-radius: 2px;
 }
 
 button:focus {
