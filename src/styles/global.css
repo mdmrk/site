@@ -131,6 +131,13 @@ table {
   width: 100%;
 }
 
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
 img {
   max-width: 100%;
   height: auto;
