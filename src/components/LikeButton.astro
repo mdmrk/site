@@ -1,0 +1,124 @@
+---
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+---
+
+<div>
+  <button class="like-button" data-slug={slug} aria-label="Like this post">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      fill="currentColor"
+      viewBox="0 0 256 256"
+      ><path
+        d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+      ></path></svg
+    >
+    <span class="like-count">-</span>
+  </button>
+</div>
+<style>
+  .like-button {
+    display: inline-flex;
+    align-items: center;
+  }
+  .like-button svg {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+</style>
+<script>
+  import { getFingerprint } from "../lib/fingerprint";
+
+  const likeButton = document.querySelector(".like-button");
+  const likeCountElement = document.querySelector(".like-count");
+  const slug = likeButton?.dataset.slug;
+  const apiEndpoint = "/api/likes";
+
+  let liked = false;
+  let count = 0;
+  let fingerprint = null;
+
+  async function initLikeButton() {
+    try {
+      fingerprint = await getFingerprint();
+      await fetchInitialState();
+      addEventListeners();
+    } catch (error) {
+      console.error("Error initializing like button:", error);
+    }
+  }
+
+  async function fetchInitialState() {
+    if (!fingerprint || !slug) return;
+
+    const response = await fetch(
+      `${apiEndpoint}/${slug}?fingerprint=${fingerprint}`,
+    );
+    if (response.ok) {
+      const data = await response.json();
+      count = data.count || 0;
+      liked = data.userLiked || false;
+      updateUI();
+    }
+  }
+
+  function addEventListeners() {
+    likeButton?.addEventListener("click", handleLikeClick);
+  }
+
+  async function handleLikeClick() {
+    if (!fingerprint || !slug) return;
+
+    const newAction = liked ? "unlike" : "like";
+
+    if (newAction === "like") {
+      if (!liked) count++;
+      liked = true;
+    } else {
+      if (liked) count--;
+      liked = false;
+    }
+    updateUI();
+
+    try {
+      const response = fetch(`${apiEndpoint}/${slug}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fingerprint,
+          action: newAction,
+        }),
+      });
+
+      response.catch((err) => {
+        console.error("Network error when updating like:", err);
+      });
+    } catch (error) {
+      console.error("Error updating like:", error);
+    }
+  }
+
+  function updateUI() {
+    if (!likeCountElement || !likeButton) return;
+
+    likeCountElement.textContent = count.toString();
+
+    if (liked) {
+      likeButton.classList.add("liked");
+      likeButton.setAttribute("aria-label", "Unlike this post");
+    } else {
+      likeButton.classList.remove("liked");
+      likeButton.setAttribute("aria-label", "Like this post");
+    }
+  }
+
+  if (likeButton) {
+    initLikeButton();
+  }
+</script>
