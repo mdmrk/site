@@ -2,6 +2,7 @@
 title: "no auth like button"
 description: "implementing a like button that does not need authentication in Astro and Supabase"
 pubDate: "03/24/2025"
+updatedDate: "03/24/2025"
 ---
 
 After creating a simple static blog in Astro I thought about implement a like button for my blog posts.
@@ -138,7 +139,7 @@ export const GET: APIRoute = async ({ request, params }) => {
 
 The fingerprint must be created on runtime at the client side and sent to the server to handle it. We can create a new one a user visits or page or it as a cookie. This makes the implementation more robust.
 
-```sh
+```ts
 export async function getFingerprint(): Promise<string> {
   try {
     const storedFingerprint = localStorage.getItem("device_fingerprint");
