@@ -27,13 +27,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         box-shadow: var(--box-shadow);
       }
       .title {
-        margin-bottom: 1em;
+        margin-bottom: 2em;
         padding-bottom: 1em;
         text-align: left;
         line-height: 1;
       }
-      .title h1 {
-        margin: 0 0 0.5em 0;
+      .title h6 {
+        margin-bottom: 1.5em;
       }
       .date {
         margin-bottom: 0.5em;
@@ -65,6 +65,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               }
             </div>
             <h1>{title}</h1>
+            <h6>{description}</h6>
             <LikeButton server:defer slug={slug}>
               <button
                 class="like-button disabled"
