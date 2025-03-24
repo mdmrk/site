@@ -107,6 +107,21 @@ button:focus {
   outline: revert;
 }
 
+.like-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.like-button svg {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.like-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 table {
   width: 100%;
 }
