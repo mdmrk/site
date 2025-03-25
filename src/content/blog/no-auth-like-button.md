@@ -40,13 +40,12 @@ its dynamic content separately from the rest of the page.
 
 This way I could server my static htmls as before **AND** in the back talk to my server and retrieve the likes info or whatever i need. **It'll show when ready, let's load content first**.
 
-Implementation is easy, just add `server:defer` to your component. In my case I pass the `slug` param. Optionally, there's the ability to use a _fallback_ component which is **prerendered** and replaced once the server data arrives.
+Implementation is easy, just add `server:defer` to your component. Optionally, there's the ability to use a _fallback_ component which is **prerendered** and replaced once the server data arrives.
 
 ```html
-<LikeButton server:defer slug="{slug}">
+<LikeButton server:defer>
   <div slot="fallback">loading...</div>
-  <LikeButton
-/></LikeButton>
+</LikeButton>
 ```
 
 Integrating Vercel is pretty easy with Astro. Just:
