@@ -2,7 +2,7 @@
 title: "no auth like button"
 description: "implementing a like button that does not need authentication in Astro and Supabase"
 pubDate: "03/24/2025"
-updatedDate: "03/24/2025"
+updatedDate: "03/25/2025"
 ---
 
 After creating a simple static blog in Astro I thought about implement a like button for my blog posts.
@@ -39,6 +39,15 @@ its dynamic content separately from the rest of the page.
 ```
 
 This way I could server my static htmls as before **AND** in the back talk to my server and retrieve the likes info or whatever i need. **It'll show when ready, let's load content first**.
+
+Implementation is easy, just add `server:defer` to your component. In my case I pass the `slug` param. Optionally, there's the ability to use a _fallback_ component which is **prerendered** and replaced once the server data arrives.
+
+```html
+<LikeButton server:defer slug="{slug}">
+  <div slot="fallback">loading...</div>
+  <LikeButton
+/></LikeButton>
+```
 
 Integrating Vercel is pretty easy with Astro. Just:
 
