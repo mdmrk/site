@@ -106,6 +106,13 @@ button {
   cursor: pointer;
   border: 1px solid;
   border-radius: 2px;
+  padding: 3px;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
 }
 
 button:focus {
