@@ -10,8 +10,7 @@ type Props = CollectionEntry<"blog">["data"];
 
 const pathname = Astro.url.pathname;
 const slug = pathname.split("/").filter(Boolean).pop();
-const { title, description, pubDate, updatedDate, heroImage } =
-  Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">

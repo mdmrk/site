@@ -18,11 +18,11 @@ fdisk /dev/sda
 
 configuring the disks here. for my one and only SSD I'm setting up the following:
 
-|partition|type|size|format|
-|:-|:-|:-|:-|
-|/dev/sda1|EFI|1G|fat32|
-|/dev/sda2|Swap|2G|swap|
-|/dev/sda3|Linux partition|Remaining space (900+GB)|ext4|
+| partition | type            | size                     | format |
+| :-------- | :-------------- | :----------------------- | :----- |
+| /dev/sda1 | EFI             | 1G                       | fat32  |
+| /dev/sda2 | Swap            | 2G                       | swap   |
+| /dev/sda3 | Linux partition | Remaining space (900+GB) | ext4   |
 
 #### filesystems
 
@@ -69,6 +69,7 @@ vi /mnt/gentoo/etc/portage/make.conf
 ```
 
 ### use flags
+
 this are my use flags of choice. it's likely some change but these are the main ones.
 
 ```sh
@@ -86,13 +87,17 @@ arch-chroot /mnt/gentoo
 mount /dev/sda1 /efi
 emerge-webrsync
 ```
+
 #### profile
+
 plain profile. i'll add use flags and needed configs on the go
+
 ```sh
 eselect profile set 21
 ```
 
 #### finish up `make.conf`
+
 ```sh
 emerge --ask --oneshot app-portage/cpuid2cpuflags
 
@@ -107,11 +112,13 @@ emerge --ask --depclean
 ```
 
 #### timezone
+
 ```sh
 ln -sf ../usr/share/zoneinfo/Europe/Madrid /etc/localtime
 ```
 
 #### locale
+
 ```sh
 nano /etc/locale.gen
 
@@ -126,7 +133,9 @@ env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 ```
 
 ### kernel
+
 i will be using the `installkernel` tool as I find it simpler than any other methods. Also I will be installing a kernel from source. Using `grub` and `dracut`.
+
 ```sh
 nano /etc/portage/package.use/installkernel
 sys-kernel/installkernel grub dracut
@@ -136,6 +145,7 @@ emerge -a sys-firmware/intel-microcode sys-kernel/linux-firmware
 ```
 
 #### configure
+
 i won't be customizing the kernel config for the moment, just installing straight away.
 
 ```sh
@@ -143,6 +153,7 @@ emerge -av gentoo-kernel
 ```
 
 #### fstab
+
 for an easier approach I'm using the 'genfstab' utility.
 
 ```sh
@@ -157,6 +168,7 @@ echo gentoo > /etc/hostname
 ```
 
 #### network
+
 my approach is simple as I'm only using ethernet.
 
 ```sh
@@ -165,12 +177,15 @@ rc-update add dhcpcd default
 ```
 
 #### root passwd
+
 ```sh
 passwd
 ```
 
 #### keymap
+
 remember to set your default keymap, altough we will need to change it for sway later on.
+
 ```sh
 nano /etc/conf.d/keymaps
 ```
@@ -201,6 +216,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 we are done! exit and reboot the system.
 
 ### wayland and sway
+
 to install wayland, again the gentoo wiki is very well self explanatory.
 
 ```sh
@@ -211,13 +227,13 @@ echo "QT_QPA_PLATFORM=wayland" > /etc/environment
 i won't be using `systemd` nor `elogind` so or next approach will be using `seat`. To setup a backend server is very easy:
 need seatd package.use with flags server, builtin
 
-
 ```sh
 rc-update add seatd default
 gpasswd -a larry seat
 ```
 
 in .bash_profile or equivalent
+
 ```sh
 #!/bin/sh
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -234,6 +250,7 @@ dbus-run-session sway
 ```
 
 ### pipewire
+
 very easy to install as well. here are some steps:
 
 ```sh
