@@ -5,12 +5,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import LikeButton from "../components/LikeButton.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { headings: MarkdownHeading[] };
 
 const pathname = Astro.url.pathname;
 const slug = pathname.split("/").filter(Boolean).pop();
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, headings } =
+  Astro.props;
 ---
 
 <html lang="en">
@@ -88,6 +90,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               <LikeButton />
               <hr />
             </LikeButton>
+            {headings.length > 1 && <TableOfContents headings={headings} />}
           </div>
           <slot />
         </div>
