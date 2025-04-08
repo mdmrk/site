@@ -6,10 +6,9 @@ interface Props {
 const { headings } = Astro.props;
 const filteredHeadings = headings.filter((heading) => true);
 ---
-
 <nav>
-  <br />
-  <h3>Table of Contents</h3>
+<br />
+  <h3>table of contents</h3>
   <ul class="toc-list">
     {
       filteredHeadings.map((heading) => (
