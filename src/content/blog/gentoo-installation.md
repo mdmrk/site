@@ -1,7 +1,8 @@
 ---
 title: "minimal gentoo installation"
-description: "installing gentoo on my system"
+description: "installing gentoo on my machine. intel + nvidia"
 pubDate: "04/07/2025"
+updatedDate: "04/10/2025"
 ---
 
 in this short guide I'll try to explain my process of installing **gentoo** in a minimal way. Then I'll install **wayland** and **sway** as wm.

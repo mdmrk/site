@@ -28,22 +28,6 @@ const { title, description, pubDate, updatedDate, heroImage, headings } =
         border-radius: 2px;
         box-shadow: var(--box-shadow);
       }
-      .title {
-        margin-bottom: 2em;
-        padding-bottom: 1em;
-        text-align: left;
-        line-height: 1;
-      }
-      .title h6 {
-        margin-bottom: 1.5em;
-      }
-      .date {
-        margin-bottom: 0.5em;
-      }
-      .last-updated-on {
-        margin-top: 0.5em;
-        font-style: italic;
-      }
     </style>
   </head>
 
@@ -92,6 +76,7 @@ const { title, description, pubDate, updatedDate, heroImage, headings } =
             </LikeButton>
             {headings.length > 1 && <TableOfContents headings={headings} />}
           </div>
+          <hr />
           <slot />
         </div>
       </article>
