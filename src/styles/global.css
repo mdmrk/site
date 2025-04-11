@@ -134,8 +134,12 @@ button:focus {
   cursor: not-allowed;
 }
 
-.title {
+hr {
   margin-bottom: 4em;
+}
+
+.title {
+  margin-bottom: 1.5em;
 }
 
 .last-updated-on {

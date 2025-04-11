@@ -2,7 +2,7 @@
 title: "minimal gentoo installation"
 description: "installing gentoo on my machine. intel + nvidia"
 pubDate: "04/07/2025"
-updatedDate: "04/10/2025"
+updatedDate: "04/11/2025"
 ---
 
 in this short guide I'll try to explain my process of installing **gentoo** in a minimal way. Then I'll install **wayland** and **sway** as wm.
@@ -238,10 +238,10 @@ in .bash_profile or equivalent
 ```sh
 #!/bin/sh
 if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/tmp/"${UID}"-runtime-dir
+  export XDG_RUNTIME_DIR=/tmp/"${UID}"-runtime-dir
   if ! test -d "${XDG_RUNTIME_DIR}"; then
-          mkdir "${XDG_RUNTIME_DIR}"
-  chmod 0700 "${XDG_RUNTIME_DIR}"
+    mkdir "${XDG_RUNTIME_DIR}"
+    chmod 0700 "${XDG_RUNTIME_DIR}"
   fi
 fi
 ```
