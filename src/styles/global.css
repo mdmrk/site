@@ -97,6 +97,14 @@ textarea {
   font-size: 16px;
 }
 
+summary {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: white;
+  cursor: pointer;
+}
+
 input {
   font-size: 12px;
 }
@@ -144,6 +152,16 @@ hr {
 
 .last-updated-on {
   font-style: italic;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.hero-image img {
+  display: block;
+  margin-bottom: 1em;
+  border-radius: 2px;
 }
 
 table {

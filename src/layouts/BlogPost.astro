@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 import LikeButton from "../components/LikeButton.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
@@ -18,26 +19,19 @@ const { title, description, pubDate, updatedDate, heroImage, headings } =
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 2px;
-        box-shadow: var(--box-shadow);
-      }
-    </style>
   </head>
 
   <body>
     <Header />
     <main>
       <article>
-        <div class="hero-image">
-          {heroImage && <img width={720} src={heroImage} alt="" />}
-        </div>
+        {
+          heroImage && (
+            <div class="hero-image">
+              <Image width={720} height={200} src={heroImage} alt="" />
+            </div>
+          )
+        }
         <div class="prose">
           <div class="title">
             <div class="date">
