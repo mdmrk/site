@@ -1,7 +1,8 @@
 ---
 title: "pyrenean thru hike"
-description: "tell about my journey trying to cross the pyrenees by foot"
-pubDate: "04/15/2025"
+description: "telling my journey trying to cross the pyrenees by foot"
+pubDate: "04/23/2025"
+updatedDate: "04/23/2025"
 heroImage: "/pyre.png"
 ---
 
