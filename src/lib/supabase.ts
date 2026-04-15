@@ -1,6 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
+import { SUPABASE_URL, SUPABASE_KEY } from "astro:env/server";
 
-export const supabase = createClient(
-  import.meta.env.SUPABASE_URL,
-  import.meta.env.SUPABASE_KEY,
-);
+export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);

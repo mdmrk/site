@@ -3,7 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 export const prerender = true;
@@ -12,15 +12,18 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-const postsByMonth = posts.reduce((acc, post) => {
-  const monthYear = post.data.pubDate.toLocaleString("en-US", {
-    month: "long",
-    year: "numeric",
-  });
-  if (!acc[monthYear]) acc[monthYear] = [];
-  acc[monthYear].push(post);
-  return acc;
-}, {});
+const postsByMonth = posts.reduce<Record<string, CollectionEntry<"blog">[]>>(
+  (acc, post) => {
+    const monthYear = post.data.pubDate.toLocaleString("en-US", {
+      month: "long",
+      year: "numeric",
+    });
+    if (!acc[monthYear]) acc[monthYear] = [];
+    acc[monthYear].push(post);
+    return acc;
+  },
+  {},
+);
 ---
 
 <!doctype html>
