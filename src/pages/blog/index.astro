@@ -1,10 +1,10 @@
 ---
+import { type CollectionEntry, getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 export const prerender = true;
 
