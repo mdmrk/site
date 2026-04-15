@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, envField } from "astro/config";
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import playformCompress from "@playform/compress";
@@ -11,10 +11,4 @@ export default defineConfig({
   output: "server",
   integrations: [mdx(), sitemap(), playformCompress()],
   adapter: vercel(),
-  env: {
-    schema: {
-      SUPABASE_URL: envField.string({ context: "server", access: "secret" }),
-      SUPABASE_KEY: envField.string({ context: "server", access: "secret" }),
-    },
-  },
 });
