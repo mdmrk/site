@@ -5,6 +5,8 @@ pubDate: "04/16/2026"
 heroImage: "/pyre.png"
 ---
 
+[part 1 ->](/blog/pyrenean-thru-hike)
+
 on 2025 I decided to attempt the second half remaining on my thru hike. i began from the exact point i left it a year before. it took 3 car sharings to get to the relatively remote village. but i did get there at 8pm on that day. the next day the adventure would begin.
 
 ### Day 0
