@@ -2,7 +2,7 @@
 title: "pyrenean thru hike"
 description: "telling my journey trying to cross the pyrenees by foot"
 pubDate: "04/23/2025"
-updatedDate: "04/23/2025"
+updatedDate: "04/16/2026"
 heroImage: "/pyre.png"
 ---
 
@@ -288,3 +288,6 @@ I crossed `Añisclo` and through the `Refugio de Pineta` all the way to `Bielsa`
 ### Thoughts
 
 The trip was amazing. I met incredible people. I got the best of emotions and some frustating moments. Overall it was great and I wish continuing thru hiking.
+
+
+[part 2 ->](/blog/pyrenean-thru-hike-part-2)
