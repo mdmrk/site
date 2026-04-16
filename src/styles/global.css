@@ -154,6 +154,12 @@ hr {
   font-style: italic;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
 .hero-image {
   width: 100%;
 }
@@ -174,12 +180,6 @@ th,
 td {
   border: 1px solid;
   border-collapse: collapse;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 2px;
 }
 
 code {
